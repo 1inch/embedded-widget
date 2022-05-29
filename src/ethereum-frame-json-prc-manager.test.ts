@@ -1,5 +1,5 @@
-import {EthereumJsonRpcManager, EthereumProvider} from './ethereum-json-prc-manager';
-import {deepEqual, instance, mock, verify, when} from 'ts-mockito';
+import {EthereumIframeJsonRpcManager, EthereumProvider} from './ethereum-iframe-json-prc-manager';
+import {anything, deepEqual, instance, mock, verify, when} from 'ts-mockito';
 
 describe('EthereumJsonRpcManager', () => {
     let iframe: HTMLIFrameElement;
@@ -15,7 +15,7 @@ describe('EthereumJsonRpcManager', () => {
     });
 
     it('Call the enable method', () => {
-        const ethereumJsonRpcManager = new EthereumJsonRpcManager(
+        const ethereumJsonRpcManager = new EthereumIframeJsonRpcManager(
             instance(iframe),
             instance(ethereumProvider)
         );
@@ -31,7 +31,7 @@ describe('EthereumJsonRpcManager', () => {
     });
 
     it('Call any other method', async () => {
-        const ethereumJsonRpcManager = new EthereumJsonRpcManager(
+        const ethereumJsonRpcManager = new EthereumIframeJsonRpcManager(
             instance(iframe),
             instance(ethereumProvider)
         );
@@ -52,7 +52,7 @@ describe('EthereumJsonRpcManager', () => {
     });
 
     it('Should send error to window', async () => {
-        const ethereumJsonRpcManager = new EthereumJsonRpcManager(
+        const ethereumJsonRpcManager = new EthereumIframeJsonRpcManager(
             instance(iframe),
             instance(ethereumProvider)
         );
@@ -74,7 +74,7 @@ describe('EthereumJsonRpcManager', () => {
     });
 
     it('Destroy instance', async () => {
-        const ethereumJsonRpcManager = new EthereumJsonRpcManager(
+        const ethereumJsonRpcManager = new EthereumIframeJsonRpcManager(
             instance(iframe),
             instance(ethereumProvider)
         );
@@ -85,5 +85,25 @@ describe('EthereumJsonRpcManager', () => {
         ethereumJsonRpcManager.destroy();
 
         verify(parent.removeChild(instance(iframe))).once();
+    });
+
+    it('On iframe load', async () => {
+        when(iframe.addEventListener('load', anything())).thenCall((_, callback) => {
+            callback();
+        });
+
+        const ethereumJsonRpcManager = new EthereumIframeJsonRpcManager(
+            instance(iframe),
+            instance(ethereumProvider)
+        );
+        const parent = mock<HTMLElement>();
+
+        when(iframe.parentElement).thenCall(() => instance(parent));
+
+        const spy = jest.fn();
+
+        ethereumJsonRpcManager.onIframeLoad(spy);
+
+        expect(spy).toHaveBeenCalledTimes(1);
     });
 });

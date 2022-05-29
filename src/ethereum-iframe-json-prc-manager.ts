@@ -9,8 +9,12 @@ export interface EthereumProvider {
     enable(args: EthereumRequestArguments): Promise<any>;
 }
 
-export class EthereumJsonRpcManager {
+export class EthereumIframeJsonRpcManager {
     private readonly eventsListener: (e: MessageEvent) => void;
+
+    private onIframeLoadCallback: (() => void) | null = null;
+
+    private isIframeLoaded = false;
 
     constructor(
         private iframe: HTMLIFrameElement,
@@ -23,6 +27,20 @@ export class EthereumJsonRpcManager {
         };
 
         window.addEventListener('message', this.eventsListener);
+
+        this.iframe.addEventListener('load', () => {
+            this.onIframeLoadCallback?.();
+            this.isIframeLoaded = true;
+        });
+    }
+
+    onIframeLoad(callback: () => void) {
+        if (this.isIframeLoaded) {
+            callback();
+            return;
+        }
+
+        this.onIframeLoadCallback = callback;
     }
 
     destroy() {

@@ -69,6 +69,12 @@ function initApp() {
             hostElement: widgetHost,
             provider: ethereumProvider
         });
+
+        widgetHost.classList.remove('active');
+
+        ethereumJsonRpcManager.onIframeLoad(() => {
+            widgetHost.classList.add('active');
+        });
     }
 
     function bindUiEvents(web3Modal) {
@@ -108,6 +114,7 @@ function initApp() {
     function setDisconnectedUiState() {
         connectWalletButton.style.display = '';
         disconnectWalletButton.style.display = 'none';
+        widgetHost.classList.remove('active');
     }
 
     function getFormState() {

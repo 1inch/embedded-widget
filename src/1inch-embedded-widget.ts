@@ -1,4 +1,4 @@
-import {EthereumJsonRpcManager, EthereumProvider} from './ethereum-json-prc-manager';
+import {EthereumIframeJsonRpcManager, EthereumProvider} from './ethereum-iframe-json-prc-manager';
 
 const defaultOneInchOrigin = 'https://app.1inch.io';
 const iframeId = 'oneInchWidgetFrame';
@@ -14,7 +14,7 @@ export interface OneInchWidgetOptions {
     sourceTokenAmount?: string;
 }
 
-export function setup1inchWidget(options: OneInchWidgetOptions): EthereumJsonRpcManager {
+export function setup1inchWidget(options: OneInchWidgetOptions): EthereumIframeJsonRpcManager {
     const {
         hostElement,
         provider,
@@ -41,5 +41,5 @@ export function setup1inchWidget(options: OneInchWidgetOptions): EthereumJsonRpc
     }
     hostElement.appendChild(iframe);
 
-    return new EthereumJsonRpcManager(iframe, provider);
+    return new EthereumIframeJsonRpcManager(iframe, provider);
 }

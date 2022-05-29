@@ -40,6 +40,13 @@
                 border: 1px solid #2e3448;
                 background-color: #181b25;
                 border-radius: 3px;
+
+                transition: box-shadow 0.2s, border-color 0.2s;
+            }
+
+            #widgetHost.active {
+                border-color: #4d5c8f;
+                box-shadow: 1px 0 26px 0 rgba(98,118,187,0.35);
             }
 
             #optionsForm {
@@ -59,7 +66,7 @@
         <script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.4/dist/index.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.6.5/dist/umd/index.min.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/@1inch/embedded-widget@0.0.1/bundle.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@1inch/embedded-widget@0.0.2/bundle.js"></script>
         <script src="index.js"></script>
     </head>
     <body>

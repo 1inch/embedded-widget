@@ -1,5 +1,5 @@
 import {OneInchWidgetOptions, setup1inchWidget} from './1inch-embedded-widget';
-import {EthereumJsonRpcManager, EthereumProvider} from './ethereum-json-prc-manager';
+import {EthereumIframeJsonRpcManager, EthereumProvider} from './ethereum-iframe-json-prc-manager';
 import {instance, mock} from 'ts-mockito';
 
 describe('setup1inchWidget', () => {
@@ -24,7 +24,7 @@ describe('setup1inchWidget', () => {
 
         const rpcManager = setup1inchWidget(options);
 
-        expect(rpcManager).toBeInstanceOf(EthereumJsonRpcManager);
+        expect(rpcManager).toBeInstanceOf(EthereumIframeJsonRpcManager);
         expect(host.innerHTML).toMatchSnapshot();
     });
 });

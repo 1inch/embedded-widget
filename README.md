@@ -11,7 +11,7 @@ See the live example [here](https://1inch.github.io/embedded-widget/) and the so
 
 | Statements                  | Branches                | Functions                 | Lines             |
 | --------------------------- | ----------------------- | ------------------------- | ----------------- |
-| ![Statements](https://img.shields.io/badge/statements-92.3%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-66.66%25-red.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-80%25-yellow.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-92.3%25-brightgreen.svg?style=flat) |
+| ![Statements](https://img.shields.io/badge/statements-90.98%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-64.7%25-red.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-85.71%25-yellow.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-90.98%25-brightgreen.svg?style=flat) |
 
 ## Installation
 
