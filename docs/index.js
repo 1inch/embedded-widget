@@ -64,6 +64,10 @@ function initApp() {
     /**********************************************************************/
 
     function initWidget(formState) {
+        if (ethereumJsonRpcManager) {
+            ethereumJsonRpcManager.destroy();
+        }
+
         ethereumJsonRpcManager = oneInch.setup1inchWidget({
             ...formState,
             hostElement: widgetHost,
