@@ -1,120 +1,119 @@
-
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>1inch embedded</title>
-    <style>
-        body {
-            background-color: #06070a;
-            color: #fff;
-            font-family: Roboto;
-            font-size: 14px;
-            padding-top: 20px;
-        }
+    <head>
+        <meta charset="utf-8">
+        <title>1inch embedded</title>
+        <style>
+            body {
+                background-color: #06070a;
+                color: #fff;
+                font-family: Roboto;
+                font-size: 14px;
+                padding-top: 20px;
+            }
 
-        .layout {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-        }
+            .layout {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+            }
 
-        .layout > .left-col {
-            width: 40%;
-            text-align: right;
-            padding-right: 30px;
-        }
+            .layout > .left-col {
+                width: 40%;
+                text-align: right;
+                padding-right: 30px;
+            }
 
-        .layout > .right-col {
-            width: 60%;
-        }
+            .layout > .right-col {
+                width: 60%;
+            }
 
-        #widgetHost, #oneInchWidgetFrame {
-            width: 420px;
-            height: 720px;
-        }
+            #widgetHost, #oneInchWidgetFrame {
+                width: 420px;
+                height: 720px;
+            }
 
-        #oneInchWidgetFrame {
-            border: 0;
-        }
+            #oneInchWidgetFrame {
+                border: 0;
+            }
 
-        #widgetHost {
-            border: 1px solid #2e3448;
-            background-color: #181b25;
-            border-radius: 3px;
-        }
+            #widgetHost {
+                border: 1px solid #2e3448;
+                background-color: #181b25;
+                border-radius: 3px;
+            }
 
-        #optionsForm {
-            display: inline-block;
-            width: 450px;
-            padding: 20px 0;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #2e3448;
-        }
+            #optionsForm {
+                display: inline-block;
+                width: 450px;
+                padding: 20px 0;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #2e3448;
+            }
 
-        #optionsForm > label {
-            display: block;
-            margin-bottom: 10px;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.1/dist/web3.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.4/dist/index.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.6.5/dist/umd/index.min.js"></script>
+            #optionsForm > label {
+                display: block;
+                margin-bottom: 10px;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.1/dist/web3.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.4/dist/index.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.6.5/dist/umd/index.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@1inch/embedded-widget@0.0.1/bundle.js"></script>
-    <script src="index.js"></script>
-</head>
-<body>
-    <div class="layout">
-        <div class="left-col">
-            <h3>1inch embedded widget</h3>
-            <form id="optionsForm">
-                <label>
-                    Network:
-                    <select name="chainId">
-                        <option value="1" selected="selected">Ethereum</option>
-                        <option value="56">BNB</option>
-                        <option value="137">Polygon</option>
-                        <option value="10">Optimism</option>
-                        <option value="42161">Arbitrum</option>
-                        <option value="100">Gnosis</option>
-                        <option value="43114">Avalanche</option>
-                        <option value="250">Fantom</option>
-                    </select>
-                </label>
-                <label>
-                    Source token:
-                    <input name="sourceTokenSymbol" type="text" value="USDT"/>
-                </label>
-                <label>
-                    Destination token:
-                    <input name="destinationTokenSymbol" type="text" value="1INCH"/>
-                </label>
-                <label>
-                    Source token amount:
-                    <input name="sourceTokenAmount" type="number" value="12000"/>
-                </label>
-                <label>
-                    Theme:
-                    <select name="theme">
-                        <option value="dark" selected="selected">Dark</option>
-                        <option value="light">Light</option>
-                    </select>
-                </label>
-                <button id="updateButton">Update</button>
-            </form>
-            <div>
-                <button id="connectWalletButton">Connect wallet</button>
-                <button id="disconnectWalletButton">Disconnect wallet</button>
+        <script src="https://cdn.jsdelivr.net/npm/@1inch/embedded-widget@0.0.1/bundle.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <div class="layout">
+            <div class="left-col">
+                <h3>1inch embedded widget</h3>
+                <form id="optionsForm">
+                    <label>
+                        Network:
+                        <select name="chainId">
+                            <option value="1" selected="selected">Ethereum</option>
+                            <option value="56">BNB</option>
+                            <option value="137">Polygon</option>
+                            <option value="10">Optimism</option>
+                            <option value="42161">Arbitrum</option>
+                            <option value="100">Gnosis</option>
+                            <option value="43114">Avalanche</option>
+                            <option value="250">Fantom</option>
+                        </select>
+                    </label>
+                    <label>
+                        Source token:
+                        <input name="sourceTokenSymbol" type="text" value="USDT"/>
+                    </label>
+                    <label>
+                        Destination token:
+                        <input name="destinationTokenSymbol" type="text" value="1INCH"/>
+                    </label>
+                    <label>
+                        Source token amount:
+                        <input name="sourceTokenAmount" type="number" value="12000"/>
+                    </label>
+                    <label>
+                        Theme:
+                        <select name="theme">
+                            <option value="dark" selected="selected">Dark</option>
+                            <option value="light">Light</option>
+                        </select>
+                    </label>
+                    <button id="updateButton">Update</button>
+                </form>
+                <div>
+                    <button id="connectWalletButton">Connect wallet</button>
+                    <button id="disconnectWalletButton">Disconnect wallet</button>
+                </div>
+            </div>
+            <div class="right-col">
+                <div id="widgetHost"></div>
             </div>
         </div>
-        <div class="right-col">
-            <div id="widgetHost"></div>
-        </div>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            initApp();
-        }, false);
-    </script>
-</body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                initApp();
+            }, false);
+        </script>
+    </body>
 </html>
