@@ -4,7 +4,8 @@
 
 # 1inch swap widget
 
-Library for integrating `1inch swap widget`
+Library for integrating `1inch swap widget`.  
+See the live example [here](https://1inch.github.io/embedded-widget/) and the source code [here](./docs).
 
 ## Test coverage
 
