@@ -2,7 +2,7 @@
   <img src="https://app.1inch.io/assets/images/logo.svg" width="200" alt="1inch network" />
 </p>
 
-# 1inch swap widget
+# 1inch embedded swap widget
 
 Library for integrating `1inch swap widget`.  
 **See the live example [here](https://1inch.github.io/embedded-widget/) and the source code [here](./docs).**
