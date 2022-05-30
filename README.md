@@ -35,7 +35,7 @@ yarn add @1inch/embedded-widget
 ```typescript
 import {setup1inchWidget} from '@1inch/embedded-widget';
 
-setup1inchWidget({
+const iframeJsonRpcManager = setup1inchWidget({
     chainId: 137,
     sourceTokenSymbol: '1INCH',
     destinationTokenSymbol: 'DAI',
@@ -44,6 +44,12 @@ setup1inchWidget({
     theme: 'light',
     sourceTokenAmount: '15'
 });
+
+iframeJsonRpcManager.destroy() // Will remove iframe from the page and stop postMessage listening
+
+iframeJsonRpcManager.onIframeLoad(() => { // Will call a callback when 1inch swap widget is fully loaded
+    console.log('1inch swap widget is loaded')
+})
 ```
 
 ## Configuration
