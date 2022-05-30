@@ -54,8 +54,8 @@ setup1inchWidget({
 | sourceTokenSymbol      | `String`                                                      | USDT         | Symbol of source token. See the full list of supported tokens on [offical 1inch docs](https://docs.1inch.io/docs/aggregation-protocol/api/swagger)      |
 | destinationTokenSymbol | `String`                                                      | DAI          | Symbol of destination token. See the full list of supported tokens on [offical 1inch docs](https://docs.1inch.io/docs/aggregation-protocol/api/swagger) |
 | sourceTokenAmount      | `String`                                                      | 200          | **Optional**. Using this option, you can pre-set the number of source tokens for the swap                                                               |
-| hostElement            | `HTMLElement`                                                 | document.body | The DOM element where the widget will be placed. You can change the witget size by changing size of the `hostElement`                                     |
-| provider               | [EthereumProvider](./src/ethereum-iframe-json-prc-manager.ts) | window.ethereum | Provider for json-rpc requests to the wallet                                                                                                            |
+| hostElement            | `HTMLElement`                                                 | document.body | The DOM element where the widget will be placed. You can change the witget size by changing size of the `hostElement`                                   |
+| provider               | [EthereumProvider](./src/ethereum-iframe-json-prc-manager.ts) | window.ethereum | [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) provider for json-rpc requests to the wallet                                                        |
 | theme                  | `light / dark`                                      | light        | **Optional**. Theme of 1inch widget UI. If not set, the widget will use the system theme                                                                |
 
 ---
